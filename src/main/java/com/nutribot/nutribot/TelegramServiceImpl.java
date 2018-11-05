@@ -1,8 +1,7 @@
 package com.nutribot.nutribot;
 
-import org.apache.commons.text.similarity.JaccardDistance;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.similarity.JaroWinklerDistance;
-import org.apache.commons.text.similarity.LevenshteinDetailedDistance;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -15,9 +14,10 @@ import java.util.Random;
 
 
 @Service
+@Slf4j
 public class TelegramServiceImpl extends TelegramLongPollingBot implements TelegramService{
 
-    private static final Double MAX_SIMILARITY_DISTANCE = 0.65;
+    private static final Double MAX_SIMILARITY_DISTANCE = 0.87;
 
     @Value("${chat.telegram.auth.poolingToken}")
     private String TOKEN;
@@ -30,7 +30,7 @@ public class TelegramServiceImpl extends TelegramLongPollingBot implements Teleg
         NutriBootstrap bootstrap = new NutriBootstrap();
 
         if (update.hasMessage() && update.getMessage().hasText()) {
-
+            log.info("User connected, asked question: " + update.getMessage().getText());
             SendMessage response = new SendMessage();
             response.setChatId(String.valueOf(update.getMessage().getChat().getId()));
             response.setText(update.getMessage().getText());
