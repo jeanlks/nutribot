@@ -1,6 +1,7 @@
 package com.nutribot.nutribot;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.text.similarity.JaroWinklerDistance;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
@@ -12,7 +13,9 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -22,6 +25,8 @@ import java.util.Random;
 public class TelegramServiceImpl extends TelegramLongPollingBot implements TelegramService{
 
     private static final Double MAX_SIMILARITY_DISTANCE = 0.87;
+    private static final String PREFIX = "temp";
+    private static final String SUFFIX = "image";
 
     @Value("${chat.telegram.auth.poolingToken}")
     private String TOKEN;
@@ -50,8 +55,8 @@ public class TelegramServiceImpl extends TelegramLongPollingBot implements Teleg
                     for (String imageLocation: answer.getImageLocation()) {
                         SendPhoto sendPhoto = new SendPhoto();
                         sendPhoto.setChatId(String.valueOf(update.getMessage().getChat().getId()));
-                        File image = new ClassPathResource(imageLocation).getFile();
-                        sendPhoto.setPhoto(image);
+                        InputStream image = new ClassPathResource(imageLocation).getInputStream();
+                        sendPhoto.setPhoto(stream2file(image));
                         execute(sendPhoto);
                     }
                 }
@@ -84,5 +89,14 @@ public class TelegramServiceImpl extends TelegramLongPollingBot implements Teleg
     @Override
     public String getBotToken() {
         return TOKEN;
+    }
+
+    public static File stream2file (InputStream in) throws IOException {
+        final File tempFile = File.createTempFile(PREFIX, SUFFIX);
+        tempFile.deleteOnExit();
+        try (FileOutputStream out = new FileOutputStream(tempFile)) {
+            IOUtils.copy(in, out);
+        }
+        return tempFile;
     }
 }
