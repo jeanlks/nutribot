@@ -8,11 +8,12 @@ public class NutriBootstrap {
     public List<Question> getQuestions(){
         List<Question> questions = new ArrayList<>();
         questions.add(new Question(0, new String[]{"/start", "Oi", "Olá"}
-                , new String[]{"Olá, eu sou o NutriBot estou aqui pra te ajudar a cuidar dos pacientes, como posso te ajudar? " +
+                , new String[]{"Olá, eu sou o NutriBot estou aqui pra te ajudar a cuidar dos pacientes \uD83C\uDFE5, como posso te ajudar? " +
                 "\n\n Aqui vão alguns exemplos do que você pode me perguntar:" +
                 "\n 1. Quais os cuidados o manipulador da dieta deve ter? " +
-                "\n 2. Como preparar solução clorada" +
-                "\n 3. Como fazer manipulação da dieta artesanal "}));
+                "\n 2. Qual a dieta artesanal?" +
+                "\n 3. Como fazer manipulação da dieta artesanal ",
+                "\n 4. Como fazer a dieta artesanal "}));
 
         questions.add(new Question(0, new String[]{"Boa noite"}
                 , new String[]{"Boa noite, em que posso lhe ajudar?"}));
@@ -22,6 +23,11 @@ public class NutriBootstrap {
 
         questions.add(new Question(0, new String[]{"Boa tarde"}
                 , new String[]{"Boa tarde, em que posso lhe ajudar?"}));
+
+        questions.add(new Question(0, new String[]{"kk","rsrs","haha"}
+                , new String[]{"Não era pra ser engraçado, mas já que você achou \uD83D\uDE02 \uD83D\uDE02",
+                "\uD83D\uDE02 \uD83D\uDE02",
+                "\uD83D\uDE1D \uD83D\uDE1D"}));
 
         questions.add(new Question(0, new String[]{"Obrigado", "valeu", "show"}
                 , new String[]{"Foi um prazer te ajudar, sempre que precisar estou aqui",
@@ -41,7 +47,7 @@ public class NutriBootstrap {
 
         questions.add(new Question(3, new String[]{"Como fazer a preparação de álcool"}
                 , new String[]{"Para se fazer a preparação do álcool 70% é necessário" +
-                "1. Pegar um recipiente com capacidade de 1 litro; \n" +
+                "\n1. Pegar um recipiente com capacidade de 1 litro; \n" +
                 "2.  Adicionar 750 ml de álcool com densidade de 96% e 97%;\n" +
                 "3.  Adicionar 250 ml de água destilada, e misturar;\n" +
                 "4.  Distribuir em borrifadores identificados. \n"}));
@@ -103,6 +109,93 @@ public class NutriBootstrap {
                 "Coloque o frasco e o equipo em solução de cloro e deixe por 7 horas;\n" +
                 "Enxágue e deixe secar ao ar livre por 1 hora;\n" +
                 "Guardar o frasco na geladeira até ser reutilizado;\n"}));
+
+        questions.add(new Question(10, new String[]{"como fazer manipulação da dieta artesanal", "como faço a manipulação da dieta artesanal"}
+                , new String[]{"Para fazer a manipulação da dieta artesanal é necessário \n" +
+                "1. Higienização dos utensílios \n" +
+                "2. Higienização das mãos \n" +
+                "3. Separar os alimentos que serão utilizados\n" +
+                "4. Higienizar as embalagens com solução de álcool \n" +
+                "5. Lave as mãos\n" +
+                "6. Prepare a dieta como recomendado\n" +
+                "7. Coloque a dieta em frascos recomendados e devidamente higienizados\n" +
+                "8. A dieta deve ser administrada em temperatura ambiente\n" +
+                "9. A dieta deve ser manipulada uma vez por dia, e dura apenas um dia.\n"}));
+
+
+        questions.add(new Question(11, new String[]{"como fazer a manipulação da fórmula do sistema fechado"}
+                , new String[]{"Para a manipulação da fórmula é necessário \n" +
+                "1. Higienizar as mãos; \n" +
+                "2. Higienizar bem o equipo e demais utensílios utilizados;\n" +
+                "3. Verifique a data de validade e agite o produto antes de usá-lo.\n"}));
+
+        questions.add(new Question(12, new String[]{"como fazer a administração da dieta pelo equipo ? "}
+                , new String[]{"Para fazer a administração da dieta pela sonda é necessário \n" +
+                "1. Colocar o indivíduo sentado ou deitado com a cabeceira elevada, enquanto receber a dieta, e deixá-lo assim um tempo depois da administração, para evitar engasgos ou outro tipo de intercorrências;\n" +
+                "2. Conectar o equipo no frasco lembrando-se de fechar a roldana antes de fazer a conexão;\n" +
+                "3. Pendurar o frasco no suporte que deve estar em um local elevado;\n" +
+                "4. Abrir a roldana do equipo e deixar as gotas caírem lentamente. A dieta deve preencher todo o equipo;\n" +
+                "5. Controlar o gotejamento no equipo, macrogotas conforme orientação do nutricionista ou enfermeiro, como descrito a seguir: deverão cair X gotas por minuto.\n"}));
+
+        questions.add(new Question(13, new String[]{"como fazer a limpeza da sonda "}
+                , new String[]{"Você deve seguir os seguintes passos para a limpeza da sonda \n" +
+                "Após a administração de cada dieta injetar 50ml de água (mineral ou fervida) com uma seringa, para evitar o acúmulo de resíduos na seringa.\n" +
+                "Fechar a sonda;\n"}));
+
+        questions.add(new Question(14, new String[]{"como conseguir a fórmula pelo SUS","Como é feita a solicitação da fórmula pelo SUS-BH"}
+                , new String[]{"Para a solicitação da fórmula é necessário que \n" +
+                "Usuário ou seu responsável legal deve ir ao Centro de Saúde de referência da residência do solicitante e agendar uma consulta médica para avaliação.\n" +
+                "O médico e enfermeiro da Equipe de Saúde da Família (ESF) e o nutricionista do Núcleo de Apoio a Saúde da Família (NASF) de referência deste irão agendar o atendimento. Em caso de identificação da necessidade de fornecimento de fórmulas industrializadas, os profissionais vão preencher um formulário padronizado de solicitação de dieta. A unidade de saúde providenciará o envio do pedido à Secretaria Municipal de Saúde de Belo Horizonte.\n" +
+                "A solicitação será avaliada por um grupo de especialistas. A decisão sobre o fornecimento ou não da dieta especial será enviada para a unidade de saúde. Caso o usuário estiver incluído nos critérios para recebimento, ele será inserido no programa e os responsáveis irão até o setor de entrega retirar a dieta mensalmente.\n" +
+                "O Centro de Saúde providenciará a comunicação da decisão ao usuário, ou seu responsável.\n"}));
+
+
+        questions.add(new Question(15, new String[]{"Quais os documentos necessários para o cadastramento"}
+                , new String[]{"Para o cadastramento é necessário \n" +
+                "Relatório Médico: elaborado em formulário específico por profissional médico da Rede SUS-BH.\n" +
+                "Relatório Nutricional: elaborado em formulário específico por profissional da Rede SUS-BH.\n" +
+                "Cópia dos documentos de identidade e do cadastro de pessoa física - CPF do paciente.\n" +
+                "Cópia do comprovante de residência\n"}));
+
+
+        questions.add(new Question(16, new String[]{"Quais os documentos necessários para a retirada da fórmula?"}
+                , new String[]{"Para o recebimento da fórmula é necessário \n" +
+                "Documento original de identidade de quem irá retirar a dieta e o documento original de identidade ou certidão de nascimento do usuário que está cadastrado para receber a dieta.\n" +
+                "A cópia dos documentos de identificação não é aceita, sendo aceitos apenas os originais. Qualquer pessoa com o documento original do paciente pode retirar a dieta.\n"}));
+
+        questions.add(new Question(17, new String[]{"De quanto em quanto tempo é preciso renovar o pedido para o recebimento da fórmula?"}
+                , new String[]{"O período de validade do pedido é de 04 meses. No 4º mês da liberação, o Centro de Saúde já deverá encaminhar a solicitação de renovação. Para isso, é necessário se dirigir à unidade de saúde e solicitar a renovação. Para que não haja interrupção no fornecimento, é importante solicitar a renovação no início do quarto mês. Os casos são analisados a cada 04 meses, considerando a evolução do quadro clínico do usuário e a sua necessidade de manutenção ou troca do tipo de dieta."}));
+
+
+        questions.add(new Question(18, new String[]{"Quais as opções de fórmulas prescritas pela nutricionista?", "Quais as opções de fórmulas prescritas"}
+                , new String[]{"As opções de fórmulas prescritas são as seguintes: \n"}, new String[] {"opcoesformula.png"}));
+
+
+        questions.add(new Question(19, new String[]{"Qual o diagnóstico nutricional?"}
+                , new String[]{"O paciente encontra-se em dieta enteral devido ao agravamento da doença de base, IMC de 24,15kg/m2 classificado como eutrófico de acordo com OPAS 2002, porém no exame físico observa-se visivelmente emagrecido, com edemas nos tornozelos e perda de peso de 5kg em 3 dias, exames bioquímicos apontam para hiperglicemia, hipoalbuminemia e níveis elevados de uréia associado a depleção muscular, caracterizando o paciente com desnutrição aguda\n"}));
+
+        questions.add(new Question(20, new String[]{"a sonda está obstruída, o que fazer?", "A sonda entupiu o que faço?", "A sonda está entupida o que faço?"}
+                , new String[]{"Para a desobstrução da sonda é necessário \n" +
+                "1. Adicionar 20 ml de água temperatura ambiente (fervida ou mineral) com uma seringa, até que desentupa.  \n" +
+                "2. a água deve ser colocada lentamente, para evitar que a sonda saia pela pressão da água.\n" +
+                "3. se continuar entupida procure atendimento no centro de saúde"}));
+
+
+        questions.add(new Question(21, new String[]{"Qual a dieta?", "Qual a dieta artesanal?"}
+                , new String[]{"Dieta Artesanal Valor calórico de  2000 kcal \n"}, new String[]{"preparacao1.png","preparacao2.png"}));
+
+        questions.add(new Question(22, new String[]{"como fazer a dieta artesanal?"}
+                , new String[]{"Modo de preparo da dieta artesanal\n" +
+                "Preparação 1 \n" +
+                "1. adicionar os ingredientes no liquidificador, bater por 4 min \n" +
+                "2. colocar no frasco e guardar no congelador \n\n" +
+                "Preparação 2 \n" +
+                "1. Cozinhar em uma mesma panela os alimentos crus arroz, carne moída, cebola, cenoura  juntamente com o feijão previamente cozido.\n" +
+                "2. Colocar os alimentos cozidos no liquidificador, juntar 2 da porção de água e todos os demais ingredientes da receita e bater por 4 minutos; \n" +
+                "3. Colocar a outra metade do água e bater por mais 3 minutos; \n" +
+                "4. Coar em peneira fina 3 vezes;\n" +
+                "5. Acondicionar na porção superior da geladeira; \n" +
+                "\n"}));
 
         return questions;
     }

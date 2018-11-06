@@ -3,12 +3,16 @@ package com.nutribot.nutribot;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.similarity.JaroWinklerDistance;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -34,17 +38,24 @@ public class TelegramServiceImpl extends TelegramLongPollingBot implements Teleg
             SendMessage response = new SendMessage();
             response.setChatId(String.valueOf(update.getMessage().getChat().getId()));
             response.setText(update.getMessage().getText());
-            String answer = bootstrap.getQuestions().stream()
+            Question answer = bootstrap.getQuestions().stream()
                     .filter(q -> findTrigger(q.possibleQuestions, update.getMessage().getText()))
-                    .map(a -> getRandom(a.possibleAnswers))
                     .findFirst()
-                    .orElse("Desculpe não entendi muito bem a sua pergunta!");
-            response.setText(answer);
-
+                    .orElse(new Question(new String[]{"Desculpe não entendi muito bem a sua pergunta!"}));
+            response.setText(getRandom(answer.getPossibleAnswers()));
 
             try {
                 execute(response);
-            } catch (TelegramApiException e) {
+                if (answer.getImageLocation()!=null){
+                    for (String imageLocation: answer.getImageLocation()) {
+                        SendPhoto sendPhoto = new SendPhoto();
+                        sendPhoto.setChatId(String.valueOf(update.getMessage().getChat().getId()));
+                        File image = new ClassPathResource(imageLocation).getFile();
+                        sendPhoto.setPhoto(image);
+                        execute(sendPhoto);
+                    }
+                }
+            } catch (TelegramApiException | IOException e) {
                 e.printStackTrace();
             }
         }

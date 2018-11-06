@@ -9,7 +9,18 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Question {
-    private int questionNum;
-    String[] possibleQuestions;
-    String[] possibleAnswers;
+    protected int questionNum;
+    protected String[] possibleQuestions;
+    protected String[] possibleAnswers;
+    protected String[] imageLocation;
+
+    public Question(int questionNum, String[] possibleQuestions, String[] possibleAnswers) {
+        this.questionNum = questionNum;
+        this.possibleQuestions = possibleQuestions;
+        this.possibleAnswers = possibleAnswers;
+    }
+
+    public Question(String[] possibleAnswers) {
+        this.possibleAnswers = possibleAnswers;
+    }
 }
