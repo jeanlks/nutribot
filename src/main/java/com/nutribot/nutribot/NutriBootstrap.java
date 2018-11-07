@@ -12,7 +12,7 @@ public class NutriBootstrap {
                 "\n\n Aqui vão alguns exemplos do que você pode me perguntar:" +
                 "\n 1. Quais os cuidados o manipulador da dieta deve ter? " +
                 "\n 2. Qual a dieta artesanal?" +
-                "\n 3. Como fazer manipulação da dieta artesanal ",
+                "\n 3. Como fazer manipulação da dieta artesanal " +
                 "\n 4. Como fazer a dieta artesanal "}));
 
         questions.add(new Question(0, new String[]{"Boa noite"}
