@@ -245,6 +245,10 @@ public class NutriBootstrap {
         questions.add(new Question(30, new String[]{"Qual a quantidade que devo usar de cada ingrediente para dieta artesanal ? ", "Qual a quantidade de cada ingrediente?", "Quantidade de cada ingrediente"}
                 , new String[]{"As quantidades de cada ingrediente serão iguais as da imagem a seguir:"}, new String[]{"qnt.png"},0.88));
 
+
+        questions.add(new Question(27, new String[]{"Exames recentes", "Quais os exames recentes", "Quais os exames bioquimicos recentes"}
+                , new String[]{"Os exames mais recentes são estes: "},new String[]{"exames.png"},0.88));
+
         return questions;
     }
 }
