@@ -44,7 +44,7 @@ public class TelegramServiceImpl extends TelegramLongPollingBot implements Teleg
             response.setChatId(String.valueOf(update.getMessage().getChat().getId()));
             response.setText(update.getMessage().getText());
             Question answer = bootstrap.getQuestions().stream()
-                    .filter(q -> findTrigger(q.possibleQuestions, update.getMessage().getText()))
+                    .filter(q -> findTrigger(q.possibleQuestions, update.getMessage().getText(), q.similarityScore))
                     .findFirst()
                     .orElse(new Question(new String[]{"Desculpe não entendi muito bem a sua pergunta!"}));
             response.setText(getRandom(answer.getPossibleAnswers()));
@@ -73,10 +73,10 @@ public class TelegramServiceImpl extends TelegramLongPollingBot implements Teleg
 
     }
 
-    private boolean findTrigger(String[] triggerMessages, String message) {
+    private boolean findTrigger(String[] triggerMessages, String message, double similarityScore) {
         JaroWinklerDistance jk = new JaroWinklerDistance();
         long matches = Arrays.stream(triggerMessages)
-                .filter((s) -> jk.apply(s.toLowerCase(), message.toLowerCase()) > MAX_SIMILARITY_DISTANCE)
+                .filter((s) -> jk.apply(s.toLowerCase(), message.toLowerCase()) > similarityScore)
                 .count();
         return matches > 0;
     }
