@@ -13,9 +13,10 @@ public class NutriBootstrap {
                 "\n • Quais os cuidados o manipulador da dieta deve ter? " +
                 "\n • Qual a dieta artesanal?" +
                 "\n • Como fazer manipulação da dieta artesanal " +
-                "\n • Como fazer a dieta artesanal ",
-                "\n • Lista de compras", "\n • Qual o diagnóstico nutricional do paciente?",
-                "\n • O que fazer em casos de vômito",
+                "\n • Como fazer a dieta artesanal " +
+                "\n • Lista de compras" +
+                "\n • Qual o diagnóstico nutricional do paciente?" +
+                "\n • O que fazer em casos de vômito"+
                 "\n • Quais os exames recentes?"},0.90) );
 
         questions.add(new Question(0, new String[]{"Boa noite"}
