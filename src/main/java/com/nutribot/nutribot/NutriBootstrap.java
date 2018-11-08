@@ -10,10 +10,13 @@ public class NutriBootstrap {
         questions.add(new Question(0, new String[]{"/start", "Oi", "Olá"}
                 , new String[]{"Olá, eu sou o NutriBot estou aqui pra te ajudar a cuidar dos pacientes \uD83C\uDFE5, como posso te ajudar? " +
                 "\n\n Aqui vão alguns exemplos do que você pode me perguntar:" +
-                "\n 1. Quais os cuidados o manipulador da dieta deve ter? " +
-                "\n 2. Qual a dieta artesanal?" +
-                "\n 3. Como fazer manipulação da dieta artesanal " +
-                "\n 4. Como fazer a dieta artesanal "},0.90) );
+                "\n • Quais os cuidados o manipulador da dieta deve ter? " +
+                "\n • Qual a dieta artesanal?" +
+                "\n • Como fazer manipulação da dieta artesanal " +
+                "\n • Como fazer a dieta artesanal ",
+                "\n • Lista de compras", "\n • Qual o diagnóstico nutricional do paciente?",
+                "\n • O que fazer em casos de vômito",
+                "\n • Quais os exames recentes?"},0.90) );
 
         questions.add(new Question(0, new String[]{"Boa noite"}
                 , new String[]{"Boa noite, em que posso lhe ajudar?"}, 0.9));
@@ -246,7 +249,7 @@ public class NutriBootstrap {
                 , new String[]{"As quantidades de cada ingrediente serão iguais as da imagem a seguir:"}, new String[]{"qnt.png"},0.88));
 
 
-        questions.add(new Question(27, new String[]{"Exames recentes", "Quais os exames recentes", "Quais os exames bioquimicos recentes"}
+        questions.add(new Question(27, new String[]{"Exames recentes", "Quais os exames recentes", "Quais os exames bioquimicos recentes", "Quais os exames mais recentes"}
                 , new String[]{"Os exames mais recentes são estes: "},new String[]{"exames.png"},0.88));
 
         return questions;
